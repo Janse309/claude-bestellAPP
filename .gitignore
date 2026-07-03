@@ -1,0 +1,10 @@
+# Interne Doku – nur lokal, nicht im Repo
+LOG.md
+README.md
+
+# Betriebssystem
+Thumbs.db
+.DS_Store
+
+# Editor
+.vscode/
