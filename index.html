@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BestellApp – BurgerHouse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="init()">
+
+  <!-- Header -->
+  <header class="header">
+    <a href="#" class="logo" onclick="scrollToTop(); return false;">
+      <span class="logo-icon">🍴</span>
+      <span class="logo-text">Bestell<br><strong>APP</strong></span>
+    </a>
+    <button class="burger-menu" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-emojis" aria-hidden="true">
+      <span>🍔</span><span>🍟</span><span>🍕</span><span>🥗</span><span>🍕</span><span>🍔</span>
+    </div>
+    <div class="hero-badge">🍔</div>
+  </section>
+
+  <!-- Restaurant info -->
+  <section class="restaurant-info">
+    <div class="restaurant-title">
+      <h1><span class="accent">Burger</span>House</h1>
+      <span class="rating">★ <strong>4,1</strong> <small>(317)</small></span>
+    </div>
+    <p class="tagline">The best of Burgers, Pizza, and Greens, all in one great place.</p>
+  </section>
+
+  <!-- Menu + Basket -->
+  <div class="layout">
+    <main id="menu"></main>
+
+    <aside class="basket" id="basket">
+      <button class="basket-close" onclick="closeBasket()" aria-label="Close basket">✕</button>
+      <h2>Your Basket</h2>
+      <div id="basket-content"></div>
+    </aside>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span>©️ 2025 BurgerHouse</span>
+    <a href="#">Imprint</a>
+    <a href="#">Cookie Preferences</a>
+  </footer>
+
+  <!-- Mobile bottom nav -->
+  <nav class="bottom-nav">
+    <button onclick="scrollToTop()" aria-label="Home">
+      <svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5M5.5 10v9.5h13V10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button onclick="scrollToMenu()" aria-label="Menu">
+      <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <button onclick="toggleBasket()" aria-label="Basket" class="nav-basket">
+      <svg viewBox="0 0 24 24"><path d="M4 6h2l2.2 10.5a1.5 1.5 0 0 0 1.5 1.2h7.8a1.5 1.5 0 0 0 1.5-1.2L20.5 9H7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10.5" cy="21" r="1.3" fill="currentColor"/><circle cx="17.5" cy="21" r="1.3" fill="currentColor"/></svg>
+      <span class="nav-badge d-none" id="nav-badge">0</span>
+    </button>
+  </nav>
+
+  <!-- Order confirmation dialog -->
+  <div class="overlay d-none" id="confirmation-overlay" onclick="closeConfirmation()">
+    <div class="confirmation" onclick="event.stopPropagation()">
+      <button class="confirmation-close" onclick="closeConfirmation()" aria-label="Close">✕</button>
+      <span class="confirmation-icon">🚚</span>
+      <h2>Order confirmed!</h2>
+      <p>Your food is on the way!</p>
+    </div>
+  </div>
+
+  <!-- Dimmed background when mobile basket is open -->
+  <div class="overlay d-none" id="basket-overlay"></div>
+
+  <script src="scripts/dishes.js"></script>
+  <script src="scripts/template.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
